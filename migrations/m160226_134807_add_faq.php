@@ -1,7 +1,7 @@
 <?php
 
 use yii\db\Migration;
-use vladkukushkin\faq\models\Faq;
+use usesgraphcrt\faq\models\Faq;
 
 class m160226_134807_add_faq extends Migration
 {

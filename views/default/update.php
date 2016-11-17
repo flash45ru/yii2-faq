@@ -1,10 +1,10 @@
 <?php
 
 use yii\helpers\Html;
-use vladkukushkin\faq\Module;
+use usesgraphcrt\faq\Module;
 
 /* @var $this yii\web\View */
-/* @var $model vladkukushkin\faq\models\Faq */
+/* @var $model usesgraphcrt\faq\models\Faq */
 
 $this->title = Module::t('faq', 'Update') . ' ' . $model->faq_title;
 $this->params['breadcrumbs'][] = ['label' => Module::t('faq', 'FREQUENTLY_ASKED_QUESTIONS'), 'url' => ['index']];

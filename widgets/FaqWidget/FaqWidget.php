@@ -1,8 +1,8 @@
 <?php
 
-namespace vladkukushkin\faq\widgets\FaqWidget;
+namespace usesghraphcrt\faq\widgets\FaqWidget;
 
-use vladkukushkin\faq\models\Faq;
+use usesgraphcrt\faq\models\Faq;
 use yii\bootstrap\Widget;
 
 class FaqWidget extends Widget

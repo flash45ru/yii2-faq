@@ -2,11 +2,11 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use vladkukushkin\faq\models\Faq;
-use vladkukushkin\faq\Module;
+use usesgraphcrt\faq\models\Faq;
+use usesgraphcrt\faq\Module;
 
 /* @var $this yii\web\View */
-/* @var $searchModel vladkukushkin\faq\models\search\FaqSearch */
+/* @var $searchModel usesgraphcrt\faq\models\search\FaqSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Module::t('faq', 'FREQUENTLY_ASKED_QUESTIONS');

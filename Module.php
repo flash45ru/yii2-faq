@@ -1,27 +1,24 @@
 <?php
 
-namespace vladkukushkin\faq;
+namespace usesgraphcrt\faq;
 
 use Yii;
 use yii\base\InvalidParamException;
 use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 
-/**
- * @author Vladislav Kukushkin <vladkuk7070@gmail.com>
- */
 
 class Module extends \yii\base\Module
 {
     /**
      * @var string The controller namespace to use
      */
-    public $controllerNamespace = 'vladkukushkin\faq\controllers';
+    public $controllerNamespace = 'usesgraphcrt\faq\controllers';
 
     /**
      * @var string source language for translation
      */
-    public $sourceLanguage = 'en-US';
+    public $sourceLanguage = 'ru-RU';
 
     /**
      * @var null|array The roles which have access to module controllers, eg. ['admin']. If set to `null`, there is no accessFilter applied
@@ -70,7 +67,7 @@ class Module extends \yii\base\Module
         Yii::$app->i18n->translations['extensions/yii2-faq/*'] = [
             'class' => 'yii\i18n\PhpMessageSource',
             'sourceLanguage' => $this->sourceLanguage,
-            'basePath' => '@vendor/vladkukushkin/yii2-faq/messages',
+            'basePath' => '@vendor/usesgraphcrt/yii2-faq/messages',
             'fileMap' => [
                 'extensions/yii2-faq/faq' => 'faq.php',
             ],

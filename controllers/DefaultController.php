@@ -1,12 +1,12 @@
 <?php
 
-namespace vladkukushkin\faq\controllers;
+namespace usesgraphcrt\faq\controllers;
 
-use vladkukushkin\faq\Module;
+use usesgraphcrt\faq\Module;
 use yii\web\Controller;
 use Yii;
-use vladkukushkin\faq\models\Faq;
-use vladkukushkin\faq\models\search\FaqSearch;
+use usesgraphcrt\faq\models\Faq;
+use usesgraphcrt\faq\models\search\FaqSearch;
 use yii\web\NotFoundHttpException;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;

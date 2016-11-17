@@ -1,14 +1,14 @@
 <?php
 
-namespace vladkukushkin\faq\models\search;
+namespace usesgraphcrt\faq\models\search;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use vladkukushkin\faq\models\Faq;
+use usesgraphcrt\faq\models\Faq;
 
 /**
- * FaqSearch represents the model behind the search form about `vladkukushkin\faq\models\Faq`.
+ * FaqSearch represents the model behind the search form about `usesgraphcrt\faq\models\Faq`.
  */
 class FaqSearch extends Faq
 {

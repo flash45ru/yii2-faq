@@ -1,6 +1,6 @@
 <?php
 
-use vladkukushkin\faq\Module;
+use usesgraphcrt\faq\Module;
 
 /* @var $model \vladkukushkin\faq\models\Faq*/
 

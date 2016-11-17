@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use vladkukushkin\faq\Module;
+use usesgraphcrt\faq\Module;
 
 
 /* @var $this yii\web\View */

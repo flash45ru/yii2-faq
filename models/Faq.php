@@ -1,9 +1,9 @@
 <?php
 
-namespace vladkukushkin\faq\models;
+namespace usesgrhaphcrt\faq\models;
 
 use Yii;
-use vladkukushkin\faq\Module;
+use usesgraphcrt\faq\Module;
 use yii\db\ActiveRecord;
 use yii\db\Query;
 

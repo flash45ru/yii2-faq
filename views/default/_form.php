@@ -3,11 +3,11 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
-use vladkukushkin\faq\models\Faq;
-use vladkukushkin\faq\Module;
+use usesgraphcrt\faq\models\Faq;
+use usesgraphcrt\faq\Module;
 
 /* @var $this yii\web\View */
-/* @var $model vladkukushkin\faq\models\Faq */
+/* @var $model usesgraphcrt\faq\models\Faq */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 

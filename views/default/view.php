@@ -2,11 +2,11 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use vladkukushkin\faq\models\Faq;
-use vladkukushkin\faq\Module;
+use usesgraphcrt\faq\models\Faq;
+use usesgraphcrt\faq\Module;
 
 /* @var $this yii\web\View */
-/* @var $model vladkukushkin\faq\models\Faq */
+/* @var $model usesgraphcrt\faq\models\Faq */
 
 $this->title = $model->faq_title;
 $this->params['breadcrumbs'][] = ['label' => Module::t('faq', 'FREQUENTLY_ASKED_QUESTIONS'), 'url' => ['index']];

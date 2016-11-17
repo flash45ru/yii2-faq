@@ -62,7 +62,7 @@ It is useful if you will place widget on existing page with other information.
 If you locate widget on separate page and want to specify title or breadcrumbs
 (or maybe both of them) you can call widget like this:
 ```php
-echo \vladkukushkin\faq\widgets\FaqWidget\FaqWidget::widget([
+echo \usesgraphcrt\faq\widgets\FaqWidget\FaqWidget::widget([
     'title' => Yii::t('app', 'FAQ'),
     'breadcrumbs' => Yii::t('app', 'FAQ page'),
 ]);

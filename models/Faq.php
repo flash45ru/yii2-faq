@@ -1,6 +1,6 @@
 <?php
 
-namespace usesgrhaphcrt\faq\models;
+namespace usesgraphcrt\faq\models;
 
 use Yii;
 use usesgraphcrt\faq\Module;

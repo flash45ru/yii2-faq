@@ -2,7 +2,6 @@
 
 use usesgraphcrt\faq\Module;
 
-/* @var $model \vladkukushkin\faq\models\Faq*/
 
 if ($title) {
     $this->title = $title;

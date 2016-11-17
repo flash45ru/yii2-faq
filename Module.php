@@ -18,7 +18,7 @@ class Module extends \yii\base\Module
     /**
      * @var string source language for translation
      */
-    public $sourceLanguage = 'ru-RU';
+    public $sourceLanguage = 'ru-Ru';
 
     /**
      * @var null|array The roles which have access to module controllers, eg. ['admin']. If set to `null`, there is no accessFilter applied

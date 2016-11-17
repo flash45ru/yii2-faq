@@ -8,20 +8,20 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist vladkukushkin/yii2-faq "*"
+php composer.phar require --prefer-dist usesgraphcrt/yii2-faq "*"
 ```
 
 or add
 
 ```
-"vladkukushkin/yii2-faq": "*"
+"usesgraphcrt/yii2-faq": "*"
 ```
 
 to the require section of your composer.json file.
 
 Make migration
 ```php
-php yii migrate --migrationPath=@vendor/vladkukushkin/yii2-faq/migrations/
+php yii migrate --migrationPath=@vendor/usesgraphcrt/yii2-faq/migrations/
 ```
 
 ## Usage
@@ -32,7 +32,7 @@ You should add module to your config:
 'modules' => [
         ...
         'faq' => [
-                    'class' => \vladkukushkin\faq\Module::className(),
+                    'class' => \usesgraphcrt\faq\Module::className(),
                     'imagesUrl' => 'http://my_site_name/upload/faq/',
                     'imagesPath' => '@frontend/web/upload/faq/',//realpath(__DIR__.'/../../frontend/web/upload/faq/')
                 ],
@@ -54,7 +54,7 @@ $menuItems[] = ['label' => 'FAQ', 'url' => ['/faq/default/index']];
  
 To display FAQ just add:
 ```php
-echo \vladkukushkin\faq\widgets\FaqWidget\FaqWidget::widget();
+echo \usesgraphcrt\faq\widgets\FaqWidget\FaqWidget::widget();
 ```
 Widget have two parameters - 'title' and 'breadcrumbs' with default value 'false',
 which means that no title and no breadcrumbs will be applied on page with widget.

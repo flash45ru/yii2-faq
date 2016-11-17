@@ -1,6 +1,6 @@
 <?php
 
-namespace usesghraphcrt\faq\widgets\FaqWidget;
+namespace usesgraphcrt\faq\widgets\FaqWidget;
 
 use usesgraphcrt\faq\models\Faq;
 use yii\bootstrap\Widget;

@@ -3,6 +3,7 @@
 namespace usesgraphcrt\faq\widgets\FaqWidget;
 
 use usesgraphcrt\faq\models\Faq;
+use usesgraphcrt\faq\models\FaqCategory;
 use yii\bootstrap\Widget;
 
 class FaqWidget extends Widget
@@ -30,11 +31,11 @@ class FaqWidget extends Widget
 
     public function run()
     {
-        $models = Faq::find()->where([
-            'faq_language' => \Yii::$app->language
-        ])->asArray()->all();
+        $categories = FaqCategory::find()->all();
+        $models = Faq::find()->asArray()->all();
         return $this->render($this->viewPath, [
             'models' => $models,
+            'categories' => $categories,
             'id' => $this->id,
             'title' => $this->title,
             'breadcrumbs' => $this->breadcrumbs,

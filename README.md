@@ -49,7 +49,7 @@ with the same values
 
 You can add link to this module in your backend navbar:
 ```php
-$menuItems[] = ['label' => 'FAQ', 'url' => ['/faq/default/index']];
+$menuItems[] = ['label' => 'FAQ', 'url' => ['/faq/main/view']];
 ```
  
 To display FAQ just add:

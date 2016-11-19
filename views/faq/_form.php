@@ -3,15 +3,17 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
+use kartik\select2\Select2;
 use usesgraphcrt\faq\models\Faq;
 use usesgraphcrt\faq\Module;
+use usesgraphcrt\faq\models\FaqCategory;
 
 /* @var $this yii\web\View */
 /* @var $model usesgraphcrt\faq\models\Faq */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="faq-form">
+<div class="faq-form row">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -37,10 +39,15 @@ use usesgraphcrt\faq\Module;
     ]);
 
     ?>
-
-    <?= $form->field($model, 'faq_show_on_main')->dropDownList(Faq::getVisibleOnMain()) ?>
-    <?= $form->field($model, 'faq_language')->dropDownList([Yii::$app->language => Yii::$app->language]) ?>
-
+    <?= $form->field($model, 'faq_category_id')
+        ->widget(Select2::classname(), [
+            'data' => FaqCategory::buildTextTree(),
+            'language' => 'ru',
+            'options' => ['placeholder' => 'Выберите категорию ...'],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]); ?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Module::t('faq', 'Create') : Module::t('faq', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

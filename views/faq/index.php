@@ -25,26 +25,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'faq_id',
+            'faq_category_id',
             'faq_title',
             [
                 'attribute' => 'faq_text',
                 'format' => 'raw',
             ],
             [
-                'attribute' => 'faq_show_on_main',
-                'value' => function ($model) {
-                    return Faq::getVisibleOnMain()[$model->faq_show_on_main];
-                },
-                'filter' => Faq::getVisibleOnMain(),
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{update} {delete}',
+                'buttonOptions' => ['class' => 'btn btn-default'],
+                'options' => ['style' => 'width: 125px;']
             ],
-            [
-                'attribute' => 'faq_language',
-                'filter' => Faq::getLanguageFilter(),
-            ],
-
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

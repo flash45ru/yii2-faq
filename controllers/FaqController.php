@@ -11,15 +11,9 @@ use yii\web\NotFoundHttpException;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
-/**
- * DefaultController implements the CRUD actions for Faq model.
- */
-class DefaultController extends Controller
+class FaqController extends Controller
 {
-    /**
-     * Defines the controller behaviors
-     * @return array
-     */
+
     public function behaviors()
     {
         return [
@@ -71,10 +65,7 @@ class DefaultController extends Controller
             ],
         ];
     }
-    /**
-     * Lists all Faq models.
-     * @return mixed
-     */
+
     public function actionIndex()
     {
         $searchModel = new FaqSearch();
@@ -86,29 +77,12 @@ class DefaultController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single Faq model.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
-     * Creates a new Faq model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
     public function actionCreate()
     {
         $model = new Faq();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->faq_id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -116,18 +90,21 @@ class DefaultController extends Controller
         }
     }
 
-    /**
-     * Updates an existing Faq model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
+    public function actionView($id)
+    {
+        $model = $this->findModel($id);
+
+        return $this->render('view',[
+           'model' => $model,
+        ]);
+    }
+
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->faq_id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -135,12 +112,6 @@ class DefaultController extends Controller
         }
     }
 
-    /**
-     * Deletes an existing Faq model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -148,13 +119,6 @@ class DefaultController extends Controller
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the Faq model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Faq the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($id)
     {
         if (($model = Faq::findOne($id)) !== null) {

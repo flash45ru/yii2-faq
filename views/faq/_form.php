@@ -33,8 +33,8 @@ use usesgraphcrt\faq\models\FaqCategory;
                 'imagemanager',
 //                'video'
             ],
-            'imageUpload' => Url::to(['/faq/default/image-upload']),
-            'imageManagerJson' => Url::to(['/faq/default/images-get']),
+            'imageUpload' => Url::to(['/faq/faq/image-upload']),
+            'imageManagerJson' => Url::to(['/faq/faq/images-get']),
         ]
     ]);
 

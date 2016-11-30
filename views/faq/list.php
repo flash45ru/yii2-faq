@@ -17,9 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col-md-2 mini-menu">
                 <ul>
                     <?php
-                    if (!empty($categories)) :
+
+                    if ($categories) {
                         foreach ($categories as $category) {
-                            if (!empty($category->getFaq()->all())) {
+
+                            if ($category->getFaq()->all()) {
                                 ?>
                                 <li class="sub">
                                     <a href="#"><?= $category->name ?></a>
@@ -38,12 +40,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             }
                         }
                         ?>
-                    <?php else:?>
+                    <?php } else {?>
                         <h4><?= Module::t('faq', 'NO_DATA'); ?></h4>
-                    <?php endif; ?>
+                    <?php } ?>
                 </ul>
             </div>
-            <div class="col-md-10" data-role="faq-view">
+            <div class="faq-view col-md-10" data-role="faq-view">
 
             </div>
         </div>

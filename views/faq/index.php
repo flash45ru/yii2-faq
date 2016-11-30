@@ -5,6 +5,7 @@ use yii\grid\GridView;
 use usesgraphcrt\faq\models\Faq;
 use usesgraphcrt\faq\Module;
 
+\usesgraphcrt\faq\assets\FaqAsset::register($this);
 /* @var $this yii\web\View */
 /* @var $searchModel usesgraphcrt\faq\models\search\FaqSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -24,6 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'options' => ['class' => 'test'],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'faq_category_id',
@@ -31,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'faq_text',
                 'format' => 'raw',
+                'options' => ['class' => 'faq-text-td'],
             ],
             [
                 'class' => 'yii\grid\ActionColumn',

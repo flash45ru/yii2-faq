@@ -79,3 +79,11 @@
     -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, .26), 0px 1px 0px 0px rgba(255, 255, 255, .15);
     box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, .26), 0px 1px 0px 0px rgba(255, 255, 255, .15);
 }
+
+.faq-view > img {
+    max-width: 100%;
+}
+
+.test img {
+    width: 150px;
+}

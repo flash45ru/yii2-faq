@@ -32,7 +32,7 @@ class FaqCategory extends \yii\db\ActiveRecord
 
     public function getFaq()
     {
-        return $this->hasMany(Faq::className(), ['faq_id' => 'id'])
+        return $this->hasMany(Faq::className(), ['faq_id' => 'faq_id'])
             ->viaTable('{{%faq_faq_to_category}}', ['category_id' => 'id']);
     }
 

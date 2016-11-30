@@ -9,7 +9,8 @@ use usesgraphcrt\faq\Module;
 /* @var $searchModel usesgraphcrt\faq\models\search\FaqSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Module::t('faq', 'FREQUENTLY_ASKED_QUESTIONS');
+$this->title = Module::t('faq', 'FAQ');
+$this->params['breadcrumbs'][] = ['label' => Module::t('faq', 'Main Menu'), 'url' => \yii\helpers\Url::to(['main/view'])];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="faq-index">

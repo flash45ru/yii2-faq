@@ -32,6 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
     ]);
     ?>
     <div class="alert alert-info">
-        Для вывода виджета FAQ: <pre>echo \usesgraphcrt\faq\widgets\FaqWidget\FaqWidget::widget();</pre>
+        Для вывода FAQ: <pre>Url to faq/faq/list</pre>
     </div>
 </div>

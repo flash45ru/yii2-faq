@@ -36,6 +36,24 @@ class FaqCategory extends \yii\db\ActiveRecord
             ->viaTable('{{%faq_faq_to_category}}', ['category_id' => 'id']);
     }
 
+    public static function buldTree($parent_id = null)
+    {
+        $return = [];
+
+        if(empty($parent_id)) {
+            $categories = FaqCategory::find()->where('parent_id = 0 OR parent_id is null')->orderBy(["name"=>SORT_ASC])->asArray()->all();
+        } else {
+            $categories = FaqCategory::find()->where(['parent_id' => $parent_id])->orderBy(["name"=>SORT_ASC])->asArray()->all();
+        }
+
+        foreach($categories as $level1) {
+            $return[$level1['id']] = $level1;
+            $return[$level1['id']]['childs'] = self::buldTree($level1['id']);
+        }
+
+        return $return;
+    }
+    
     public static function buildTextTree($id = null, $level = 1, $ban = [])
     {
         $return = [];

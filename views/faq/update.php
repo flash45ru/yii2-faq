@@ -7,7 +7,8 @@ use usesgraphcrt\faq\Module;
 /* @var $model usesgraphcrt\faq\models\Faq */
 
 $this->title = Module::t('faq', 'Update') . ' ' . $model->faq_title;
-$this->params['breadcrumbs'][] = ['label' => Module::t('faq', 'FREQUENTLY_ASKED_QUESTIONS'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Module::t('faq', 'Main Menu'), 'url' => \yii\helpers\Url::to(['main/view'])];
+$this->params['breadcrumbs'][] = ['label' => Module::t('faq', 'FAQ'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->faq_title, 'url' => ['view', 'id' => $model->faq_id]];
 $this->params['breadcrumbs'][] = Module::t('faq', 'Update');
 ?>

@@ -12,7 +12,7 @@ if ($breadcrumbs) {
 $faq_id = $id ? $id : 0;
 ?>
 <?php if ($categories):?>
-<div class="row">
+<div class="container">
     <div class="col-lg-4 col-sm-4">
         <div class="panel-group" id="accordion">
             <?php foreach ($categories as $category) :?>

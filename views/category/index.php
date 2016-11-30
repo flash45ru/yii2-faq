@@ -3,9 +3,11 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use usesgraphcrt\faq\models\FaqCategory;
+use usesgraphcrt\faq\Module;
 use yii\grid\GridView;
 
 $this->title = 'Категории';
+$this->params['breadcrumbs'][] = ['label' => Module::t('faq', 'Main Menu'), 'url' => \yii\helpers\Url::to(['main/view'])];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -32,7 +34,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'id',
         'name',
         'parent_id',
-        ['class' => 'yii\grid\ActionColumn'],
+        [
+            'class' => 'yii\grid\ActionColumn',
+            'template' => '{update} {delete}',
+            'buttonOptions' => ['class' => 'btn btn-default'],
+            'options' => ['style' => 'width: 125px;']
+        ],
     ],
 ]); ?>
 

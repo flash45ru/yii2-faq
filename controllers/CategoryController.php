@@ -46,16 +46,7 @@ class CategoryController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
-    public function actionView($id)
-    {
-        $model = $this->findModel($id);
-
-        return $this->render('view', [
-            'model' => $model,
-        ]);
-    }
-
+    
     public function actionCreate()
     {
         $model = new FaqCategory();
@@ -91,9 +82,8 @@ class CategoryController extends Controller
 
     protected function findModel($id)
     {
-        $model = $this->module->getService('category');
-        
-        if (($model = $model::findOne($id)) !== null) {
+
+        if (($model = FaqCategory::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested product does not exist.');

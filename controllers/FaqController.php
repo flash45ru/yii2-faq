@@ -2,6 +2,7 @@
 
 namespace usesgraphcrt\faq\controllers;
 
+use usesgraphcrt\faq\models\FaqCategory;
 use usesgraphcrt\faq\Module;
 use yii\web\Controller;
 use Yii;
@@ -92,8 +93,9 @@ class FaqController extends Controller
 
     public function actionView($id)
     {
-        $model = $this->findModel($id);
 
+        $model = $this->findModel($id);
+        
         return $this->render('view',[
            'model' => $model,
         ]);
@@ -110,6 +112,25 @@ class FaqController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+    
+    public function actionList()
+    {
+
+        $categories = FaqCategory::find()->all();
+
+        return $this->render('list',[
+            'categories' => $categories,
+        ]);
+    }
+
+    public function actionAjaxListView($id = null)
+    {
+        $model = $this->findModel($id);
+        
+        return $this->renderAjax('listView',[
+            'model' => $model,
+        ]);
     }
 
     public function actionDelete($id)

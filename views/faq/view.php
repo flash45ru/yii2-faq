@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="col-md-8 panel panel-default">
                 <h1><?= Html::encode($this->title) ?></h1>
-                <?= $model->faq_text ?>
+                <?= $model->text ?>
             </div>
         </div>
     </div>

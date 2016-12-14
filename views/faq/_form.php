@@ -17,10 +17,10 @@ use usesgraphcrt\faq\models\FaqCategory;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'faq_title')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?=
-    $form->field($model, 'faq_text')->widget(\vova07\imperavi\Widget::className(), [
+    $form->field($model, 'text')->widget(\vova07\imperavi\Widget::className(), [
         'settings' => [
             'lang' => Yii::$app->controller->module->imperaviLanguage,
             'minHeight' => 200,
@@ -39,7 +39,7 @@ use usesgraphcrt\faq\models\FaqCategory;
     ]);
 
     ?>
-    <?= $form->field($model, 'faq_category_id')
+    <?= $form->field($model, 'category_id')
         ->widget(Select2::classname(), [
             'data' => FaqCategory::buildTextTree(),
             'language' => 'ru',

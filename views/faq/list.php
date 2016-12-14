@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <?php
                                         foreach ($category->getFaq()->all() as $faq) { ?>
                                             <li><a class="btn" data-role="faq-load"
-                                                   data-url="<?= \yii\helpers\Url::to(['faq/ajax-list-view', 'id' => $faq->faq_id]) ?>"><?= $faq->faq_title ?></a>
+                                                   data-url="<?= \yii\helpers\Url::to(['faq/ajax-list-view', 'id' => $faq->id]) ?>"><?= $faq->title ?></a>
                                             </li>
                                             <?php
                                         }

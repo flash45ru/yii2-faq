@@ -16,8 +16,8 @@ class FaqSearch extends Faq
     public function rules()
     {
         return [
-            [['faq_id','faq_category_id'], 'integer'],
-            [['faq_title', 'faq_text'], 'safe'],
+            [['id','category_id'], 'integer'],
+            [['title', 'text'], 'safe'],
         ];
     }
 
@@ -41,12 +41,12 @@ class FaqSearch extends Faq
         }
 
         $query->andFilterWhere([
-            'faq_category_id' => $this->faq_category_id,
-            'faq_id' => $this->faq_id,
+            'category_id' => $this->category_id,
+            'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'faq_title', $this->faq_title])
-            ->andFilterWhere(['like', 'faq_text', $this->faq_text]);
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'text', $this->text]);
 
         return $dataProvider;
     }

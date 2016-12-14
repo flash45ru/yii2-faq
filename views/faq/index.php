@@ -28,10 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'options' => ['class' => 'test'],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'faq_category_id',
-            'faq_title',
+            'category_id',
+            'title',
             [
-                'attribute' => 'faq_text',
+                'attribute' => 'text',
                 'format' => 'raw',
                 'options' => ['class' => 'faq-text-td'],
             ],

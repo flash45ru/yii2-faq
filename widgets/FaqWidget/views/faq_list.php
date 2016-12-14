@@ -31,11 +31,11 @@ $faq_id = $id ? $id : 0;
                                 <?php
                                 foreach ($category->getFaq()->all() as $model){
                                     echo Button::widget([
-                                        'label' => $model->faq_title,
+                                        'label' => $model->title,
                                         'options' => [
                                             'class' => 'btn btn-link',
                                             'style' => 'margin:5px',
-                                            'href' =>  \yii\helpers\Url::to(['../faq/faq/view', 'id' => $model->faq_id]),
+                                            'href' =>  \yii\helpers\Url::to(['../faq/faq/view', 'id' => $model->id]),
                                             'target' => '_blank',
                                         ],
                                         'tagName' => 'a',

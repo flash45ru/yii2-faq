@@ -19,18 +19,18 @@ class m161119_112011_faq_faq extends Migration
         $this->createTable(
             '{{%faq_faq}}',
             [
-                'faq_id'=> $this->primaryKey(11),
-                'faq_category_id'=> $this->integer(11)->null()->defaultValue(null),
-                'faq_title'=> $this->string(255)->notNull(),
-                'faq_text'=> $this->text()->notNull(),
+                'id'=> $this->primaryKey(11),
+                'category_id'=> $this->integer(11)->null()->defaultValue(null),
+                'title'=> $this->string(255)->notNull(),
+                'text'=> $this->text()->notNull(),
             ],$tableOptions
         );
-        $this->createIndex('faq_category_id','{{%faq_faq}}','faq_category_id',false);
+        $this->createIndex('category_id','{{%faq_faq}}','category_id',false);
     }
 
     public function safeDown()
     {
-        $this->dropIndex('faq_category_id', '{{%faq_faq}}');
+        $this->dropIndex('category_id', '{{%faq_faq}}');
         $this->dropTable('{{%faq_faq}}');
     }
 }

@@ -16,17 +16,17 @@
     display: block;
     outline: 0;
     padding: .7em 1em;
+    padding-left: 5px;
     text-decoration: none;
-    color: #C9C9C9;
+    color: #d5daff;
     font-weight: normal;
-    text-shadow: 1px 1px 3px #111;
-    background: #333;
+    background-color: #0c365a;
     border-bottom: 1px solid #222;
 }
 
 .mini-menu > ul > li > a:hover,
 .mini-menu > ul > li > a.active {
-    color:#f2bd00;
+    color:#fff;
 }
 .mini-menu .sub > ul {
     counter-reset: items;
@@ -45,8 +45,8 @@
 }
 .mini-menu .sub > ul > li > a:hover,
 .mini-menu .sub > ul > li > a.active {
-    background: #d8d8d8;
-    color: red;
+    background: #0c365a;
+    color: #fff;
     padding-left: 1.3em;
 }
 .mini-menu .sub > ul > li > a:after{
@@ -63,7 +63,6 @@
     position: absolute;
     right: 10px;
     top: 6px;
-    background: #333;
     line-height: 1em;
     padding: .5em .7em;
     color: #c9c9c9;

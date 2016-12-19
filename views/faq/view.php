@@ -7,7 +7,7 @@ use usesgraphcrt\faq\Module;
 /* @var $this yii\web\View */
 /* @var $model usesgraphcrt\faq\models\Faq */
 
-$this->title = $model->faq_title;
+$this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Module::t('faq', 'FAQ'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

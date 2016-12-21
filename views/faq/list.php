@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="faq-view">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 faq-menu">
                 <div class="panel-group" id="accordion">
                     <?php
                     if ($categories) {
@@ -60,5 +60,3 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
-
-

@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $(".sub > a").click(function() {
         var ul = $(this).next(),
             clone = ul.clone().css({"height":"auto"}).appendTo(".mini-menu"),
@@ -7,14 +8,16 @@ $(document).ready(function () {
         ul.animate({"height":height});
         return false;
     });
+
     $('.mini-menu > ul > li > a').click(function(){
         $('.sub a').removeClass('active');
         $(this).addClass('active');
     }),
-        $('.sub ul li a').click(function(){
-            $('.sub ul li a').removeClass('active');
-            $(this).addClass('active');
-        });
+
+    $('.faq-menu ul li a').click(function(){
+        $('.faq-menu ul li').removeClass('active');
+        $(this).closest('li').addClass('active');
+    });
 
 
     $('[data-role=faq-load]').on('click',function () {

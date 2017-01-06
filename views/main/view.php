@@ -1,17 +1,18 @@
 <?php
 
+
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\bootstrap\Button;
 use usesgraphcrt\faq\Module;
 
-$this->title = 'Управление модулем FAQ';
+$this->title = 'Редактирование инструкции';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="faq-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
+    <div class="well">Здесь Вы можете добавлять пометки в инструкцию по работе в Вашей системе. Не забывайте уведомить менеджера компании "Dvizh", что необходимо внести изменения в данную инструкцию после проведения любых работ по развитию Вашей системы.</div>
     <?= Button::widget([
         'label' => 'Управление категориями',
         'options' => [
@@ -31,7 +32,4 @@ $this->params['breadcrumbs'][] = $this->title;
         'tagName' => 'a',
     ]);
     ?>
-    <div class="alert alert-info">
-        Для вывода FAQ: <pre>Url to faq/faq/list</pre>
-    </div>
 </div>

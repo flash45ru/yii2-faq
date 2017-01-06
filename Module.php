@@ -39,8 +39,7 @@ class Module extends \yii\base\Module
      * @var string Language selector for ImperaviWidget
      */
     public $imperaviLanguage = 'ru';
-
-
+    
     /**
      * Init module
      */

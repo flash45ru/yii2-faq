@@ -28,7 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'options' => ['class' => 'test'],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'category_id',
+           // 'category_id',
+            [
+                'attribute' => 'category_id',
+                'format' => 'raw',
+                'value' => function($model){ return $model->getFaqCategory()->one()->name;},
+            ],
             'title',
             [
                 'attribute' => 'text',

@@ -36,6 +36,24 @@ class CategoryController extends Controller
         ];
     }
 
+    protected function deleteSubCategory($categoryId)
+    {
+        $subCategories = $this->findModel($categoryId)->getChilds()->all();
+        $this->deleteCategoryQuestion($categoryId);
+        $this->findModel($categoryId)->delete();
+        foreach ($subCategories as $subCategory) {
+            $this->deleteSubCategory($subCategory->id);
+        }
+    }
+
+    protected function deleteCategoryQuestion($categoryId)
+    {
+        $categoryQuestions =$this->findModel($categoryId)->getFaq()->all();
+        foreach ($categoryQuestions as $categoryQuestion){
+            $categoryQuestion->delete();
+        }
+    }
+
     public function actionIndex()
     {
         $searchModel = new FaqCategorySearch();
@@ -75,8 +93,8 @@ class CategoryController extends Controller
 
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        $this->deleteSubCategory($id);
+        
         return $this->redirect(['index']);
     }
 

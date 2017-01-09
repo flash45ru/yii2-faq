@@ -43,13 +43,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     ),
                     'value' => 'parent.name'
                 ],
-                ['class' => 'yii\grid\ActionColumn', 'template' => '{update} {delete}',  'buttonOptions' => ['class' => 'btn btn-default'], 'options' => ['style' => 'width: 125px;']],
+                ['class' => 'yii\grid\ActionColumn', 'template' => '{update}',  'buttonOptions' => ['class' => 'btn btn-default']],
             ],
         ]);
     } else {
-        $categories = \pistol88\tree\widgets\Tree::widget(['model' => new \usesgraphcrt\faq\models\FaqCategory(),'viewUrl' => 'faq/listView']);
+        $categories = \pistol88\tree\widgets\Tree::widget(['model' => new \usesgraphcrt\faq\models\FaqCategory(),'viewUrl' => null]);
     }
-
     echo $categories;
     ?>
 

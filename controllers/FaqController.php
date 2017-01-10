@@ -3,7 +3,6 @@
 namespace usesgraphcrt\faq\controllers;
 
 use usesgraphcrt\faq\models\FaqCategory;
-use usesgraphcrt\faq\Module;
 use yii\web\Controller;
 use Yii;
 use usesgraphcrt\faq\models\Faq;
@@ -14,7 +13,7 @@ use yii\filters\VerbFilter;
 
 class FaqController extends Controller
 {
-
+    
     public function behaviors()
     {
         return [
@@ -131,6 +130,20 @@ class FaqController extends Controller
         return $this->renderAjax('listView',[
             'model' => $model,
         ]);
+    }
+    
+    public function actionAjaxSearchResult()
+    {
+        $searchText = yii::$app->request->post('data');
+
+        $results = Faq::find()
+            ->where('Match (title, text) AGAINST (:key IN BOOLEAN MODE)',[':key' => $searchText])
+            ->limit(5)
+            ->all();
+        return $this->renderAjax('_searchResult',[
+                'searchText' => $searchText,
+                'results' => $results,
+            ]);
     }
 
     public function actionDelete($id)

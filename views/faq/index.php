@@ -2,8 +2,9 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use usesgraphcrt\faq\models\Faq;
+use usesgraphcrt\faq\models\FaqCategory;
 use usesgraphcrt\faq\Module;
+use yii\helpers\StringHelper;
 
 \usesgraphcrt\faq\assets\FaqAsset::register($this);
 /* @var $this yii\web\View */
@@ -31,14 +32,23 @@ $this->params['breadcrumbs'][] = $this->title;
            // 'category_id',
             [
                 'attribute' => 'category_id',
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'category_id',
+                    FaqCategory::buildTextTree(),
+                    ['class' => 'form-control', 'prompt' => 'Категория']
+                ),
                 'format' => 'raw',
                 'value' => function($model){ return $model->getFaqCategory()->one()->name;},
             ],
             'title',
             [
                 'attribute' => 'text',
-                'format' => 'raw',
+                'format' => 'html',
                 'options' => ['class' => 'faq-text-td'],
+                'value' => function ($model) {
+                    return StringHelper::truncate($model->text, 250);
+                }
             ],
             [
                 'class' => 'yii\grid\ActionColumn',

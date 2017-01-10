@@ -38,4 +38,9 @@ return [
     'NO_DATA' => 'Данные для отображения не найдены',
     'Main Menu' => 'Управление модулем',
     'Main Category' => 'Главная категория',
+    'Instruction list' => 'Инструкции',
+    'Search' => 'Поиск',
+    'Search by categories' => 'Поиск по категориям',
+    'Search by questions' => 'Поиск по вопросам',
+    'Search results by query:' => 'Результаты поиска по запросу:',
  ];

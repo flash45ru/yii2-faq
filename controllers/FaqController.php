@@ -123,11 +123,14 @@ class FaqController extends Controller
     public function actionAjaxSearchResult()
     {
         $searchText = yii::$app->request->post('data');
-
         $results = Faq::find()
             ->where('Match (title, text) AGAINST (:key IN BOOLEAN MODE)',[':key' => $searchText])
             ->limit(5)
             ->all();
+        if  (empty($results)) {
+            $results = Faq::find()->filterWhere(['like', 'title',$searchText])->orFilterWhere(['like', 'text',$searchText])->all();
+        }
+
         return $this->renderAjax('_searchResult',[
                 'searchText' => $searchText,
                 'results' => $results,

@@ -14,15 +14,21 @@ use yii\helpers\StringHelper;
          <b>"<?= $searchText ?>"</b>
     </span>
     <hr>
-    <?php foreach ($results as $result){ ?>
-                <h3 class="text-info">
-                    <a class="panel-content" data-role="faq-re-load"
-                       data-url="<?= \yii\helpers\Url::to(['faq/ajax-list-view', 'id' => $result->id]) ?>">
-                        <?= StringHelper::truncate($result->title, 80) ?>
-                    </a>
-                </h3>
-        <hr>
-                <?= StringHelper::truncate($result->text, 120) ?>
+    <?php if (!empty($results)) { ?>
+        <?php foreach ($results as $result) { ?>
+            <h3 class="text-info">
+                <a class="panel-content" data-role="faq-re-load"
+                   data-url="<?= \yii\helpers\Url::to(['faq/ajax-list-view', 'id' => $result->id]) ?>">
+                    <?= StringHelper::truncate($result->title, 80) ?>
+                </a>
+            </h3>
+            <hr>
+            <?= StringHelper::truncate($result->text, 120) ?>
+        <?php }
+    } else { ?>
+        <div class="alert alert-danger">
+            Ничего не найдено.
+        </div>
     <?php }
     ?>
 </div>

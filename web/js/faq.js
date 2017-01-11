@@ -46,6 +46,12 @@ $(document).ready(function () {
         $('.faq-menu ul li').removeClass('active');
         $(this).closest('li').addClass('active');
     });
+
+    $('[data-role=search-text]').keydown(function(e) {
+        if (e.which == 13) {
+            usesgraphcrt.faq.search();
+        }
+    });
     
     $('[data-role=faq-load]').on('click',function () {
         usesgraphcrt.faq.load($(this).data('url'));

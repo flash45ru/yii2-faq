@@ -1,10 +1,6 @@
 <?php
 
-use yii\helpers\Html;
-use yii\widgets\DetailView;
-use usesgraphcrt\faq\models\Faq;
 use usesgraphcrt\faq\Module;
-use yii\bootstrap\Button;
 
 \usesgraphcrt\faq\assets\FaqAsset::register($this);
 
@@ -15,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <form class="form form-inline" role="search">
+                <div class="form form-inline" role="search">
                         <div class="input-group">
                             <input type="text" class="form-control" data-role="search-text">
                         </div>
@@ -25,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
         <br>

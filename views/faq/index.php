@@ -7,9 +7,7 @@ use usesgraphcrt\faq\Module;
 use yii\helpers\StringHelper;
 
 \usesgraphcrt\faq\assets\FaqAsset::register($this);
-/* @var $this yii\web\View */
-/* @var $searchModel usesgraphcrt\faq\models\search\FaqSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+
 
 $this->title = Module::t('faq', 'FAQ');
 $this->params['breadcrumbs'][] = ['label' => Module::t('faq', 'Main Menu'), 'url' => \yii\helpers\Url::to(['main/view'])];
@@ -18,7 +16,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="faq-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a(Module::t('faq', 'Create'), ['create'], ['class' => 'btn btn-success']) ?>

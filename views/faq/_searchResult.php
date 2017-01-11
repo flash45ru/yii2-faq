@@ -13,6 +13,7 @@ use yii\helpers\StringHelper;
         <?= Module::t('faq','Search results by query:');?>
          <b>"<?= $searchText ?>"</b>
     </span>
+    <hr>
     <?php foreach ($results as $result){ ?>
                 <h3 class="text-info">
                     <a class="panel-content" data-role="faq-re-load"

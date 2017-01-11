@@ -19,11 +19,11 @@ use yii\helpers\StringHelper;
             <h3 class="text-info">
                 <a class="panel-content" data-role="faq-re-load"
                    data-url="<?= \yii\helpers\Url::to(['faq/ajax-list-view', 'id' => $result->id]) ?>">
-                    <?= StringHelper::truncate($result->title, 80) ?>
+                    <?= StringHelper::truncate(preg_replace("#($searchText)#iu", "<span style='background-color: rgb(255, 153, 153);'>$1</span>", $result->title), 80) ?>
                 </a>
             </h3>
             <hr>
-            <?= StringHelper::truncate($result->text, 120) ?>
+            <?= StringHelper::truncate(preg_replace("#($searchText)#iu", "<span style='background-color: rgb(255, 153, 153);'>$1</span>", $result->text), 120) ?>
         <?php }
     } else { ?>
         <div class="alert alert-danger">

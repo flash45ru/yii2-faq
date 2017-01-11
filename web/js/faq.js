@@ -3,6 +3,7 @@ if (typeof usesgraphcrt == "undefined" || !usesgraphcrt) {
 }
 
 usesgraphcrt.faq = {
+    
     init: function() {
         $(document).on('click','.usesgraphcrt-faq-search', this.search);
     },

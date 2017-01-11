@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html',
                 'options' => ['class' => 'faq-text-td'],
                 'value' => function ($model) {
-                    return StringHelper::truncate($model->text, 250);
+                    return StringHelper::truncate($model->text, 75);
                 }
             ],
             [

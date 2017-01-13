@@ -9,3 +9,7 @@
 .panel-content:hover {
     cursor: pointer;
 }
+
+* img {
+    max-width: 100%;
+}

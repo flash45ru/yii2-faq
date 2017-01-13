@@ -6,6 +6,7 @@ use usesgraphcrt\faq\Module;
 
 $this->title = Module::t('faq', 'Instruction list');
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="faq-view">
     <div class="container-fluid">

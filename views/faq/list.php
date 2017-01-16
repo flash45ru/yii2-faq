@@ -18,16 +18,20 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="panel-body">';
                         if(!empty($category['childs'])) {
                             foreach ($category['childs'] as $subCategory){
-                                $return .=renderChildren($subCategory);
+                                if (!empty($subCategory->getFaq()->all())) {
+                                    $return .=renderChildren($subCategory);
+                                }
                             }
                         };
                         $return .= '<ul class="nav nav-pills nav-stacked">';
-                            foreach ($category->getFaq()->all() as $faq) {
-                                $return .= '<li>
+                            if (!empty($category->getFaq())) {
+                                foreach ($category->getFaq()->all() as $faq) {
+                                    $return .= '<li>
                                     <a class="panel-content" data-role="faq-load"
                                        data-url="' . \yii\helpers\Url::to(['faq/ajax-list-view', 'id' => $faq->id]) . '">' . $faq->title . '
                                     </a>
                                 </li>';
+                                }
                             }
                        $return .='</ul>
                     </div>

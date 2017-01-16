@@ -104,7 +104,7 @@ class FaqController extends Controller
     public function actionList()
     {
 
-        $categories = FaqCategory::find()->all();
+        $categories = FaqCategory::find()->where(['parent_id' => null])->all();
 
         return $this->render('list',[
             'categories' => $categories,
@@ -143,7 +143,7 @@ class FaqController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(Yii::$app->request->referrer);
     }
 
     protected function findModel($id)

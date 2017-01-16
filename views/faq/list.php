@@ -6,7 +6,36 @@ use usesgraphcrt\faq\Module;
 
 $this->title = Module::t('faq', 'Instruction list');
 $this->params['breadcrumbs'][] = $this->title;
+ function renderChildren($category){
+     $return ='';
+     $return .= '<div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion'.$category['id'].'" href="#collapse'.$category['id'].'">'.$category['name'].'</a>
+                    </h4>
+                </div>
+                <div id="collapse'.$category['id'].'" class="panel-collapse collapse">
+                    <div class="panel-body">';
+                        if(!empty($category['childs'])) {
+                            foreach ($category['childs'] as $subCategory){
+                                $return .=renderChildren($subCategory);
+                            }
+                        };
+                        $return .= '<ul class="nav nav-pills nav-stacked">';
+                            foreach ($category->getFaq()->all() as $faq) {
+                                $return .= '<li>
+                                    <a class="panel-content" data-role="faq-load"
+                                       data-url="' . \yii\helpers\Url::to(['faq/ajax-list-view', 'id' => $faq->id]) . '">' . $faq->title . '
+                                    </a>
+                                </li>';
+                            }
+                       $return .='</ul>
+                    </div>
+                </div>
+            </div>';
 
+     return $return;
+ }
 ?>
 <div class="faq-view">
     <div class="container-fluid">
@@ -33,34 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?php
                         if ($categories) {
                             foreach ($categories as $category) {
-
-                                if ($category->getFaq()->all()) {
-                                    ?>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $category->id ?>"><?= $category->name ?></a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapse<?= $category->id ?>" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                <ul class="nav nav-pills nav-stacked">
-                                                    <?php
-                                                    foreach ($category->getFaq()->all() as $faq) { ?>
-                                                        <li>
-                                                            <a class="panel-content" data-role="faq-load"
-                                                               data-url="<?= \yii\helpers\Url::to(['faq/ajax-list-view', 'id' => $faq->id]) ?>"><?= $faq->title ?>
-                                                            </a>
-                                                        </li>
-
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php }
+                                echo renderChildren($category);
                             }
                             ?>
                         <?php } else {?>

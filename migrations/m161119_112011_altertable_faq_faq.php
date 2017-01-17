@@ -14,7 +14,7 @@ class m161119_112011_altertable_faq_faq extends Migration
 
     public function safeUp()
     {
-        $this->addColumn('{{%faq_faq}}','sort',$this->integer(1)->null());
+        $this->addColumn('{{%faq_faq}}','sort',$this->integer(10)->null());
     }
 
     public function safeDown()

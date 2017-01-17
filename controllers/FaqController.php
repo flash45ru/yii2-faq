@@ -104,7 +104,7 @@ class FaqController extends Controller
     public function actionList()
     {
 
-        $categories = FaqCategory::find()->where(['parent_id' => null])->all();
+        $categories = FaqCategory::find()->where(['parent_id' => null])->orderBy(['sort' => SORT_ASC])->all();
 
         return $this->render('list',[
             'categories' => $categories,
@@ -123,6 +123,11 @@ class FaqController extends Controller
     public function actionAjaxSearchResult()
     {
         $searchText = yii::$app->request->post('data');
+        if  (empty($searchText)) {
+            return $this->renderAjax('_searchResult',[
+                'searchText' => $searchText
+            ]);
+        }
         $results = Faq::find()
             ->where('Match (title, text) AGAINST (:key IN BOOLEAN MODE)',[':key' => $searchText])
             ->all();
@@ -134,9 +139,9 @@ class FaqController extends Controller
         }
 
         return $this->renderAjax('_searchResult',[
-                'searchText' => $searchText,
-                'results' => $results,
-            ]);
+            'searchText' => $searchText,
+            'results' => $results,
+        ]);
     }
 
     public function actionDelete($id)

@@ -1,45 +1,13 @@
 <?php
 
 use usesgraphcrt\faq\Module;
+use usesgraphcrt\faq\helpers\RenderTreeHelper;
 
 \usesgraphcrt\faq\assets\FaqAsset::register($this);
 
 $this->title = Module::t('faq', 'Instruction list');
 $this->params['breadcrumbs'][] = $this->title;
- function renderChildren($category){
-     $return ='';
-     $return .= '<div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion'.$category['id'].'" href="#collapse'.$category['id'].'">'.$category['name'].'</a>
-                    </h4>
-                </div>
-                <div id="collapse'.$category['id'].'" class="panel-collapse collapse">
-                    <div class="panel-body">';
-                        if(!empty($category['childs'])) {
-                            foreach ($category['childs'] as $subCategory){
-                                if (!empty($subCategory->getFaq()->all())) {
-                                    $return .=renderChildren($subCategory);
-                                }
-                            }
-                        };
-                        $return .= '<ul class="nav nav-pills nav-stacked">';
-                            if (!empty($category->getFaq())) {
-                                foreach ($category->getFaq()->all() as $faq) {
-                                    $return .= '<li>
-                                    <a class="panel-content" data-role="faq-load"
-                                       data-url="' . \yii\helpers\Url::to(['faq/ajax-list-view', 'id' => $faq->id]) . '">' . $faq->title . '
-                                    </a>
-                                </li>';
-                                }
-                            }
-                       $return .='</ul>
-                    </div>
-                </div>
-            </div>';
 
-     return $return;
- }
 ?>
 <div class="faq-view">
     <div class="container-fluid">
@@ -66,7 +34,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?php
                         if ($categories) {
                             foreach ($categories as $category) {
-                                echo renderChildren($category);
+                                if (!empty($category->getFaq()->orderBy(['sort' => SORT_ASC])->all()) || !empty($category->getChilds()->all())) {
+                                    echo RenderTreeHelper::renderTree($category);
+                                }
                             }
                             ?>
                         <?php } else {?>

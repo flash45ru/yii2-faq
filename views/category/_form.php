@@ -1,15 +1,11 @@
 <?php
-use yii\helpers\Url;
 use yii\helpers\Html;
-use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use usesgraphcrt\faq\models\FaqCategory;
 use kartik\select2\Select2;
 
 ?>
-<!--<div class="form-group shop-control">-->
-<!--    --><?//= Html::button('Назад',['class' => 'btn btn-primary pull-left', 'onClick' => 'history.back()']) ?>
-<!--</div>-->
+
 <div class="category-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
@@ -25,7 +21,7 @@ use kartik\select2\Select2;
                     'allowClear' => true
                 ],
             ]); ?>
-        
+    <?= $form->field($model, 'sort')->textInput()->hint('Здесь задается порядок вывода вопроса. Чем ближе цифра к 0, тем раньше выведется вопрос для просмотра') ?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

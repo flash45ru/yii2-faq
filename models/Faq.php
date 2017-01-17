@@ -19,7 +19,7 @@ class Faq extends ActiveRecord
     {
         return [
             [['title', 'text'], 'required'],
-            [['id','category_id'], 'integer'],
+            [['id','category_id','sort'], 'integer'],
             [['text'], 'string'],
             [['text'], 'trim'],
             [['title'], 'string', 'max' => 255],
@@ -33,6 +33,7 @@ class Faq extends ActiveRecord
             'category_id' => Module::t('faq','Main Category'),
             'title' => Module::t('faq', 'Header'),
             'text' => Module::t('faq', 'Content'),
+            'sort' => Module::t('faq','Sorting'),
         ];
     }
 

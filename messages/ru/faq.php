@@ -43,4 +43,5 @@ return [
     'Search by categories' => 'Поиск по категориям',
     'Search by questions' => 'Поиск по вопросам',
     'Search results by query:' => 'Результаты поиска по запросу:',
+    'Sorting' => 'Сортировка',
  ];

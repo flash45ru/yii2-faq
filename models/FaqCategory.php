@@ -16,7 +16,7 @@ class FaqCategory extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['id', 'parent_id'], 'integer'],
+            [['id', 'parent_id','sort'], 'integer'],
             [['name'], 'string', 'max' => 255],
         ];
     }
@@ -27,13 +27,13 @@ class FaqCategory extends \yii\db\ActiveRecord
             'id' => 'ID',
             'parent_id' => 'Родительская категория',
             'name' => 'Название',
+            'sort' => 'Сортировка',
         ];
     }
 
     public function getFaq()
     {
-        return $this->hasMany(Faq::className(), ['id' => 'faq_id'])
-            ->viaTable('{{%faq_faq_to_category}}', ['category_id' => 'id']);
+        return $this->hasMany(Faq::className(),['category_id' => 'id']);
     }
 
     public static function buldTree($parent_id = null)

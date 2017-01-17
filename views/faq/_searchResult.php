@@ -1,7 +1,7 @@
 <?php
 use usesgraphcrt\faq\Module;
 use yii\helpers\StringHelper;
-//\usesgraphcrt\faq\assets\FaqAsset::register($this);
+
  $this->registerJs("
      $('[data-role=faq-re-load]').on('click',function () {
         usesgraphcrt.faq.load($(this).data('url'));
@@ -19,7 +19,7 @@ use yii\helpers\StringHelper;
             <h3 class="text-info">
                 <a class="panel-content" data-role="faq-re-load"
                    data-url="<?= \yii\helpers\Url::to(['faq/ajax-list-view', 'id' => $result->id]) ?>">
-                    <?= StringHelper::truncate(preg_replace("#($searchText)#iu", "<span style='background-color: rgb(255, 153, 153);'>$1</span>", $result->title), 80) ?>
+                    <?= StringHelper::truncate(preg_replace("#($searchText)#iu", "<span style='background-color: rgb(255, 153, 153);'>$1</span>", $result->title), 150) ?>
                 </a>
             </h3>
             <hr>

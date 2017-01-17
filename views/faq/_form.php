@@ -48,7 +48,7 @@ use usesgraphcrt\faq\models\FaqCategory;
                     'allowClear' => true
                 ],
             ]); ?>
-        <?= $form->field($model, 'sort')->textInput()->hint('Здесь задается порядок вывода вопроса. Чем выше цифра, тем раньше выведется вопрос для просмотра') ?>
+        <?= $form->field($model, 'sort')->textInput()->hint('Здесь задается порядок вывода вопроса. Чем выше цифра, тем выше выведется вопрос для просмотра') ?>
         <div class="form-group">
             <?= Html::submitButton($model->isNewRecord ? Module::t('faq', 'Create') : Module::t('faq', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
         </div>

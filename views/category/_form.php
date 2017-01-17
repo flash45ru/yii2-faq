@@ -21,7 +21,7 @@ use kartik\select2\Select2;
                     'allowClear' => true
                 ],
             ]); ?>
-    <?= $form->field($model, 'sort')->textInput()->hint('Здесь задается порядок вывода категории. Чем выше цифра, тем раньше выведется категория') ?>
+    <?= $form->field($model, 'sort')->textInput()->hint('Здесь задается порядок вывода категории. Чем выше цифра, тем выше выведется категория') ?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

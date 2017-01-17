@@ -16,15 +16,15 @@ class RenderTreeHelper
                 <div id="collapse'.$category['id'].'" class="panel-collapse collapse">
                     <div class="panel-body">';
         if(!empty($category['childs'])) {
-            foreach ($category->getChilds()->orderBy(['sort' => SORT_ASC])->all() as $subCategory){
-                if (!empty($subCategory->getFaq()->orderBy(['sort' => SORT_ASC])->all()) && !empty($category->getChilds()->all())){
+            foreach ($category->getChilds()->orderBy(['sort' => SORT_DESC])->all() as $subCategory){
+                if (!empty($subCategory->getFaq()->orderBy(['sort' => SORT_DESC])->all()) && !empty($category->getChilds()->all())){
                     $childrenTree .= static::renderTree($subCategory);
                 }
             }
         };
         $childrenTree .= '<ul class="nav nav-pills nav-stacked">';
         if (!empty($category->getFaq()->all())) {
-            foreach ($category->getFaq()->orderBy(['sort' => SORT_ASC])->all() as $faq) {
+            foreach ($category->getFaq()->orderBy(['sort' => SORT_DESC])->all() as $faq) {
                 $childrenTree .= '<li>
                                     <a class="panel-content" data-role="faq-load"
                                        data-url="' . \yii\helpers\Url::to(['faq/ajax-list-view', 'id' => $faq->id]) . '">' . $faq->title . '

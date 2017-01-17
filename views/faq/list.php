@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?php
                         if ($categories) {
                             foreach ($categories as $category) {
-                                if (!empty($category->getFaq()->orderBy(['sort' => SORT_ASC])->all()) || !empty($category->getChilds()->all())) {
+                                if (!empty($category->getFaq()->orderBy(['sort' => SORT_DESC])->all()) || !empty($category->getChilds()->all())) {
                                     echo RenderTreeHelper::renderTree($category);
                                 }
                             }

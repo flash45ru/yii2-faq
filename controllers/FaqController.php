@@ -104,7 +104,7 @@ class FaqController extends Controller
     public function actionList()
     {
 
-        $categories = FaqCategory::find()->where(['parent_id' => null])->orderBy(['sort' => SORT_ASC])->all();
+        $categories = FaqCategory::find()->where(['parent_id' => null])->orderBy(['sort' => SORT_DESC])->all();
 
         return $this->render('list',[
             'categories' => $categories,

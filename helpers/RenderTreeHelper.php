@@ -5,6 +5,10 @@ namespace usesgraphcrt\faq\helpers;
 
 class RenderTreeHelper
 {
+    /**
+     * @param $category
+     * @return string
+     */
     static function renderTree($category){
         $childrenTree ='';
         $childrenTree .= '<div class="panel panel-default">
@@ -27,7 +31,8 @@ class RenderTreeHelper
             foreach ($category->getFaq()->orderBy(['sort' => SORT_DESC])->all() as $faq) {
                 $childrenTree .= '<li>
                                     <a class="panel-content" data-role="faq-load"
-                                       data-url="' . \yii\helpers\Url::to(['faq/ajax-list-view', 'id' => $faq->id]) . '">' . $faq->title . '
+                                    data-id="'.$faq->id.'"
+                                       data-url="#' . \yii\helpers\Url::to(['faq/ajax-list-view', 'id' => $faq->id]) . '">' . $faq->title . '
                                     </a>
                                 </li>';
             }

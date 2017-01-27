@@ -11,6 +11,7 @@ usesgraphcrt.faq = {
     search: function() {
         var searchText = $('[data-role=search-text]').val(),
             url = $('.usesgraphcrt-faq-search').data('url');
+            url.replace("#","");
         $.post(
             url,
             {data: searchText},
@@ -18,6 +19,14 @@ usesgraphcrt.faq = {
                 $('[data-role=faq-view]').html(response);
             }
         );
+    },
+
+    getUrlVar: function () {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+            vars[key] = value;
+        });
+        return vars;
     },
 
     load: function(url) {
@@ -28,6 +37,12 @@ usesgraphcrt.faq = {
 };
 
 $(document).ready(function () {
+
+    if (location.hash) {
+        url = location.hash.replace("#/","");
+        $(document).find("[data-id = "+usesgraphcrt.faq.getUrlVar()["id"]+"]").closest('li').addClass('active');
+        usesgraphcrt.faq.load(location.hash.replace("#/",""));
+    }
 
     $(".sub > a").click(function() {
         var ul = $(this).next(),
@@ -55,7 +70,9 @@ $(document).ready(function () {
     });
     
     $('[data-role=faq-load]').on('click',function () {
-        usesgraphcrt.faq.load($(this).data('url'));
+        url = $(this).data('url');
+        usesgraphcrt.faq.load(url.replace("#",""));
+        window.history.pushState(1,'title',url.replace(/\/faq/g,''));
     });
     
 });

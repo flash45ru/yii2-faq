@@ -3,7 +3,7 @@
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m161119_111911_altertable_faq_category extends Migration
+class m161119_111912_altertable_faq_category extends Migration
 {
 
     public function init()

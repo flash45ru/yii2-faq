@@ -70,7 +70,7 @@ class CategoryController extends Controller
         $model = new FaqCategory();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
+            return $this->redirect('index');
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -95,7 +95,7 @@ class CategoryController extends Controller
     {
         $this->deleteSubCategory($id);
         
-        return $this->redirect(['index']);
+        return $this->redirect('index');
     }
 
     protected function findModel($id)

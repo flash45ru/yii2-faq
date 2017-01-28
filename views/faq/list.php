@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col-md-3 faq-menu">
                 <div class="row">
                     <div class="panel-group" id="accordion">
+                        <div class="hidden" data-role="settings" data-url="<?=\yii\helpers\Url::to(['/faq/faq']) ?>"></div>
                         <?php
                         if ($categories) {
                             foreach ($categories as $category) {

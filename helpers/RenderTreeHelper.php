@@ -32,7 +32,7 @@ class RenderTreeHelper
                 $childrenTree .= '<li>
                                     <a class="panel-content" data-role="faq-load"
                                     data-id="'.$faq->id.'"
-                                       data-url="#' . \yii\helpers\Url::to(['faq/ajax-list-view', 'id' => $faq->id]) . '">' . $faq->title . '
+                                       data-url="#/ajax-list-view?id='.$faq->id.'">' . $faq->title . '
                                     </a>
                                 </li>';
             }

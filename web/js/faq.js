@@ -6,6 +6,7 @@ usesgraphcrt.faq = {
     
     init: function() {
         $(document).on('click','.usesgraphcrt-faq-search', this.search);
+        settings = $('[data-role=settings]');
     },
 
     search: function() {
@@ -30,6 +31,9 @@ usesgraphcrt.faq = {
     },
 
     load: function(url) {
+        console.log(settings.data('url'));
+        url = settings.data('url') + url;
+        console.log(url);
         $('[data-role=faq-view]').load(url, function() {
             $('[data-role=faq-view]').fadeIn();
         });
@@ -39,9 +43,7 @@ usesgraphcrt.faq = {
 $(document).ready(function () {
 
     if (location.hash) {
-        url = location.hash.replace("#/","");
-        $(document).find("[data-id = "+usesgraphcrt.faq.getUrlVar()["id"]+"]").closest('li').addClass('active');
-        usesgraphcrt.faq.load(location.hash.replace("#/",""));
+        usesgraphcrt.faq.load(location.hash.replace("#",""));
     }
 
     $(".sub > a").click(function() {

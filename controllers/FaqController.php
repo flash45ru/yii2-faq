@@ -25,6 +25,7 @@ class FaqController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
+                'actions' => $this->module->allowActions,
                 'rules' => [
                     [
                         'allow' => true,

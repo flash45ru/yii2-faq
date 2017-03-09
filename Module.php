@@ -29,7 +29,7 @@ class Module extends \yii\base\Module
      * @var null|array The actions will be allowed in FaqController, eg. ['index','view','update','delete','list','ajax-list-view','ajax-search-result'].
      * If set to `null`, there is no allowed actions
      */
-    public $allowActions = ['index','view','update','delete','list','ajax-list-view','ajax-search-result'];
+    public $allowFaqControllerActions = ['index','view','update','delete','list','ajax-list-view','ajax-search-result'];
 
     /**
      * @var string Directory URL address, where images files are stored. 'http://my_site_name/upload/faq/'
@@ -45,7 +45,7 @@ class Module extends \yii\base\Module
      * @var string Language selector for ImperaviWidget
      */
     public $imperaviLanguage = 'ru';
-    
+
     /**
      * Init module
      */

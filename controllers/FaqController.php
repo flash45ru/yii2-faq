@@ -13,7 +13,7 @@ use yii\filters\VerbFilter;
 
 class FaqController extends Controller
 {
-    
+
     public function behaviors()
     {
         return [
@@ -25,9 +25,9 @@ class FaqController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'actions' => $this->module->allowActions,
                 'rules' => [
                     [
+                        'actions' => $this->module->allowFaqControllerActions,
                         'allow' => true,
                         'roles' => $this->module->accessRoles,
                     ],
@@ -83,7 +83,7 @@ class FaqController extends Controller
     {
 
         $model = $this->findModel($id);
-        
+
         return $this->render('view',[
            'model' => $model,
         ]);
@@ -101,7 +101,7 @@ class FaqController extends Controller
             ]);
         }
     }
-    
+
     public function actionList()
     {
 
@@ -115,12 +115,12 @@ class FaqController extends Controller
     public function actionAjaxListView($id = null)
     {
         $model = $this->findModel($id);
-        
+
         return $this->renderAjax('listView',[
             'model' => $model,
         ]);
     }
-    
+
     public function actionAjaxSearchResult()
     {
         $searchText = yii::$app->request->post('data');
@@ -161,4 +161,3 @@ class FaqController extends Controller
         }
     }
 }
-

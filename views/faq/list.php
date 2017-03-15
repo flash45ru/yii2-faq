@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                         <div class="input-group">
                             <button type="button" class="btn btn-search btn-default usesgraphcrt-faq-search"
-                                    data-url="#<?= \yii\helpers\Url::to(['faq/ajax-search-result']) ?>">
+                                    data-url="<?= \yii\helpers\Url::to(['faq/ajax-search-result']) ?>">
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
                     </div>
